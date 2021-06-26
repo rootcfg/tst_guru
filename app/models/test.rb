@@ -5,6 +5,6 @@ class Test < ApplicationRecord
   private
 
   def self.test_by_category(category)
-    select(:title).joins(:category).where('categories.title = ? ', category).pluck
+    joins(:category).where('categories.title = ? ', category).pluck(:title)
   end
 end
