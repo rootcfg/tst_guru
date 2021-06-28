@@ -1,6 +1,7 @@
 class Test < ApplicationRecord
   belongs_to :category
-  has_and_belongs_to_many :users
+  has_many :tests_user
+  has_many :users, through: :tests_user
 
   private
 
