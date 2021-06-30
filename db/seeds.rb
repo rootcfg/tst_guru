@@ -9,8 +9,8 @@
 categories = Category.create([{title: "Sport"},{title: "Autos"},{title: "Bikes"},{title: "Planes"},{title: "Trains"}])
 u = User.create(username: "Alex")
 
-Test.create!(title: "About #{categories.sample.title}", level: rand(4), category_id: categories.sample.id, author_id: rand(1..User.all.size))
-Test.create!(title: "About #{categories.sample.title}", level: rand(4), category_id: categories.sample.id, author_id: rand(1..User.all.size))
-Test.create!(title: "About #{categories.sample.title}", level: rand(4), category_id: categories.sample.id, author_id: rand(1..User.all.size))
-Test.create!(title: "About #{categories.sample.title}", level: rand(4), category_id: categories.sample.id, author_id: rand(1..User.all.size))
-Test.create!(title: "About #{categories.sample.title}", level: rand(4), category_id: categories.sample.id, author_id: rand(1..User.all.size))
+Test.create(title: "About #{categories.sample.title}", level: rand(4), category_id: categories.sample.id, author_id: rand(1..User.all.size))
+Test.create(title: "About #{categories.sample.title}", level: rand(4), category_id: categories.sample.id, author_id: rand(1..User.all.size))
+Test.create(title: "About #{categories.sample.title}", level: rand(4), category_id: categories.sample.id, author_id: rand(1..User.all.size))
+Test.create(title: "About #{categories.sample.title}", level: rand(4), category_id: categories.sample.id, author_id: rand(1..User.all.size))
+Test.create(title: "About #{categories.sample.title}", level: rand(4), category_id: categories.sample.id, author_id: rand(1..User.all.size))
