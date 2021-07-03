@@ -1,0 +1,20 @@
+<h1>All tests</h1>
+
+<div>
+  <table cellspacing="2" border="1" cellpadding="5" width="600">
+    <thead>
+    <tr>
+      <td>Title</td>
+      <td>Level</td>
+      <td>Category</td>
+      <td>Author</td>
+      <td>Created</td>
+      <td>Updated</td>
+      <td>Questions</td>
+    </tr>
+    </thead>
+    <%= render @tests %>
+  </table>
+</div>
+
+<%= link_to 'New test', new_test_path %>

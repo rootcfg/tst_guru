@@ -8,6 +8,6 @@ class Question < ApplicationRecord
   private
 
   def answers_count_permit?
-    anwers.count > 1 && anwers.count <= 4 ? true : false
+    answers.count > 1 && answers.count <= 4
   end
 end

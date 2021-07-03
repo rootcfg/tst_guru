@@ -1,0 +1,7 @@
+<h2>New question</h2>
+
+<%= form_for @question, url: test_questions_path do |f| %>
+  <%= f.text_field :body %> <br>
+  <%= f.hidden_field :test_id, :value => params[:test_id] %>
+  <%= f.submit %>
+<% end %>
