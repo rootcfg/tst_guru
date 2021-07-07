@@ -1,16 +1,15 @@
 class QuestionsController < ApplicationController
 
-  before_action :question_params, only: [:create]
-  before_action :find_test, only:  [:create]
+  before_action :find_test, only:  [:create, :index, :new]
 
   rescue_from ActiveRecord::RecordNotFound, with: :show_errors
 
   def index
-    @questions = Question.where(test_id: params[:test_id])
+    @questions = @test.questions
   end
 
   def new
-    @question = Question.new
+    @question = @test.questions.build
   end
 
   def create
@@ -33,6 +32,6 @@ class QuestionsController < ApplicationController
   end
 
   def question_params
-    params.require(:question).permit(:body, :test_id)
+    params.require(:question).permit(:body)
   end
 end

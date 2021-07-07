@@ -18,15 +18,6 @@ class TestsController < ApplicationController
     end
   end
 
-  def create
-    @test = Test.new(test_params)
-    if @test.save!
-      redirect_to tests_path
-    else
-      render plain: "#{@test.errors}"
-    end
-  end
-
   private
 
   def test_params
