@@ -2,7 +2,6 @@ class TestsController < ApplicationController
 
   def index
     @tests = Test.all
-    @question = Question.new
   end
 
   def new
@@ -11,7 +10,7 @@ class TestsController < ApplicationController
 
   def create
     @test = Test.new(test_params)
-    if @test.save!
+    if @test.save
       redirect_to tests_path
     else
       render plain: "#{@test.errors}"

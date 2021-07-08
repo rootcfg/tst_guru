@@ -1,12 +1,15 @@
 class QuestionsController < ApplicationController
 
   before_action :find_test, only:  [:create, :index, :new]
+  before_action :set_question ,only: [:show, :destroy]
 
   rescue_from ActiveRecord::RecordNotFound, with: :show_errors
 
   def index
     @questions = @test.questions
   end
+
+  def show;end
 
   def new
     @question = @test.questions.build
@@ -21,7 +24,17 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def destroy
+    if @question.delete
+      redirect_to tests_path
+    end
+  end
+
   private
+
+  def set_question
+    @question = Question.find_by(id: params[:id])
+  end
 
   def find_test
     @test = Test.find_by(id: params[:test_id])

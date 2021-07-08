@@ -1,1 +1,6 @@
-<li><%= question.body %></li>
+<div>
+  <%= link_to question.body, question %>
+  <%= form_with url: question, method: :delete do |form| %>
+    <% form.submit "Delete" %>
+  <% end %>
+</div>
