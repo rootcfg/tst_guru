@@ -1,3 +1,15 @@
 // Place all the styles related to the questions controller here.
 // They will automatically be included in application.scss.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.success {
+  border: 1px solid chartreuse;
+}
+
+.alert {
+  border: 1px dot-dot-dash coral;
+}
+
+.notice {
+  border: 1px dotted rebeccapurple;
+}

@@ -25,15 +25,14 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    if @question.delete
-      redirect_to tests_path
-    end
+    @question.delete ?  flash[:success] = "Das gut" : flash[:alert] = "Ooops..."
+    redirect_to tests_path
   end
 
   private
 
   def set_question
-    @question = Question.find_by(id: params[:id])
+    @question = Question.find(params[:id])
   end
 
   def find_test
