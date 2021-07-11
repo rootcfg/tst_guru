@@ -26,7 +26,7 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  config.assets.compile = true
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = 'http://assets.example.com'
@@ -71,7 +71,7 @@ Rails.application.configure do
   config.i18n.fallbacks = true
 
   config.time_zone = 'Moscow'
-  I18n.config.available_locales = %i[ru]
+  I18n.config.available_locales = %i[en]
 
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify

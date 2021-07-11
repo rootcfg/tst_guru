@@ -1,0 +1,12 @@
+  <tr>
+    <td><%= test.title %></td>
+    <td><%= test.level %></td>
+    <td><%= test.category.title %></td>
+    <td><%= test.author.username %></td>
+    <td><%= test.created_at.to_formatted_s(:rfc822)  %></td>
+    <td><%= test.updated_at.to_formatted_s(:short)  %></td>
+    <td>
+      <%= link_to test.questions.count, test_questions_path(test)%> |
+      <%= link_to "Add question", new_test_question_path(test) %>
+    </td>
+  </tr>
