@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
 
-  before_action :find_test, only:  [:create, :index, :new]
+  before_action :find_test, only:  [:create, :index, :new, :update]
   before_action :set_question ,only: [:show, :destroy, :edit, :update]
 
   rescue_from ActiveRecord::RecordNotFound, with: :show_errors
@@ -27,13 +27,11 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    respond_to do |format|
       if @question.update(question_params)
-        format.html { redirect_to @question, success: "Question was successfully updated." }
+         redirect_to @question, success: "Question was successfully updated."
       else
-        format.html { render :edit, status: :unprocessable_entity }
+         render :edit, status: :unprocessable_entity
       end
-    end
   end
 
   def destroy

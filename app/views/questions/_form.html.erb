@@ -1,11 +1,4 @@
-<% if action_name == 'new'
-     resource = [@question.test, @question]
-   else
-     resource =  @question
-     end
-%>
-
-  <%= form_for resource, html: { class: "ui form" } do |f| %>
+<%= form_for [@test, @question], html: { class: "ui form" } do |f| %>
     <div class="field">
     <%= f.text_field :body %>
   </div>

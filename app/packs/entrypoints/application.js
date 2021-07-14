@@ -14,8 +14,11 @@
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 import $ from 'jquery';
+import jQuery from 'jquery';
+window.$ = window.jQuery = jQuery;
+require('semantic-ui/dist/semantic')
 
-$( document ).ready(function() {
+$(document).ready(function() {
     $('.message .close')
         .on('click', function() {
             $(this)
@@ -24,5 +27,5 @@ $( document ).ready(function() {
             ;
         })
     ;
-});
+})
 
