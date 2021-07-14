@@ -13,8 +13,16 @@
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+import $ from 'jquery';
 
-
-document.addEventListener("turbolinks:load", () => {
-    alert("page has loaded!");
+$( document ).ready(function() {
+    $('.message .close')
+        .on('click', function() {
+            $(this)
+                .closest('.message')
+                .transition('fade')
+            ;
+        })
+    ;
 });
+
