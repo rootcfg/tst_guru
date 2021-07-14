@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+@import 'semantic-ui';
+
+.footer {
+  background-color: #212121;
+  height: 50px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.white {
+  padding-top: 5px !important;
+  color: whitesmoke !important;
+}
