@@ -1,7 +1,7 @@
 class TestsController < ApplicationController
 
   def index
-    @tests = Test.all
+    @pagy, @tests = pagy(Test.all, items: 10)
   end
 
   def new

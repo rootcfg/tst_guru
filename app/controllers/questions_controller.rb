@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
 
-  before_action :find_test, only:  [:create, :index, :new]
-  before_action :set_question ,only: [:show, :destroy]
+  before_action :find_test, only:  [:create, :index, :new, :update]
+  before_action :set_question ,only: [:show, :destroy, :edit, :update]
 
   rescue_from ActiveRecord::RecordNotFound, with: :show_errors
 
@@ -10,6 +10,8 @@ class QuestionsController < ApplicationController
   end
 
   def show;end
+
+  def edit;end
 
   def new
     @question = @test.questions.build
@@ -24,8 +26,16 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def update
+      if @question.update(question_params)
+         redirect_to @question, success: "Question was successfully updated."
+      else
+         render :edit, status: :unprocessable_entity
+      end
+  end
+
   def destroy
-    @question.delete ?  flash[:success] = "Das gut" : flash[:alert] = "Ooops..."
+    @question.delete ?  flash[:negative] = "Das gut" : flash[:negative] = "Ooops..."
     redirect_to tests_path
   end
 

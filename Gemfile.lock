@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails/webpacker.git
-  revision: 032c2d11a3758035305fe34e6795ab133128ee32
+  revision: 5dae8b51956e9cd739bdfae44f8214fa1e0f49b2
   specs:
     webpacker (6.0.0.beta.7)
       activesupport (>= 5.2)
@@ -110,6 +110,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.11.7-x86_64-linux)
       racc (~> 1.4)
+    pagy (4.10.1)
     pg (1.2.3)
     public_suffix (4.0.6)
     puma (4.3.8)
@@ -146,7 +147,7 @@ GEM
       method_source
       rake (>= 0.8.7)
       thor (>= 0.20.3, < 2.0)
-    rake (13.0.3)
+    rake (13.0.6)
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
@@ -165,6 +166,8 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
+    semantic-ui-sass (2.4.4.0)
+      sassc
     semantic_range (3.0.0)
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
@@ -213,11 +216,13 @@ DEPENDENCIES
   capybara (>= 2.15)
   jbuilder (~> 2.7)
   listen (~> 3.2)
+  pagy
   pg
   puma (~> 4.1)
   rails (~> 6.0.4)
   sass-rails (>= 6)
   selenium-webdriver
+  semantic-ui-sass
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3 (~> 1.4)
