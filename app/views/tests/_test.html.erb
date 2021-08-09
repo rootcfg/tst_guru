@@ -8,6 +8,7 @@
     <td>
       <div class="ui left labeled button" tabindex="0">
         <%= link_to test.questions.count, test_questions_path(test), class: "ui basic label"%>
+        <%= button_to 'Start this', start_test_path(test), class: "ui basic label"%>
         <div class="ui icon button">
           <%= link_to "<i class='add icon'></i>".html_safe, new_test_question_path(test)%>
         </div>

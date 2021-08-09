@@ -1,0 +1,9 @@
+<h1>Test <%= @test_passage.test.title %>was passed successfully</h1>
+
+<% if @test_passage.result >= 85 %>
+  <div class="ui green message">You result is <%= @test_passage.result  %> percent! </div>
+<% else %>
+  <div class="ui red message">You result is <%= @test_passage.result  %> it is not good!  </div>
+<% end %>
+<br>
+<%= link_to "Back to list of tests", tests_path %>
