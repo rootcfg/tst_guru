@@ -43,7 +43,6 @@ class TestPassage < ApplicationRecord
 
   def after_validation_next_question
     self.current_question =  test.questions.order(:id).where('id > ?', current_question_id).first
-
   end
 
   def correct_answer?(answers_ids)

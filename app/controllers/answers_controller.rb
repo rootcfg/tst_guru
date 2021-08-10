@@ -14,7 +14,7 @@ class AnswersController < ApplicationController
 
   def create
     @answer = @question.answers.new(answer_params)
-    if @answer.save!
+    if @answer.save
       redirect_to @answer, success: "Answer was created successfully"
     else
       render plain: "#{ @answer.errors.messages}"
@@ -30,7 +30,7 @@ class AnswersController < ApplicationController
   end
 
   def destroy
-    @answer.destroy!
+    @answer.destroy
     redirect_to @answer.question
   end
 
