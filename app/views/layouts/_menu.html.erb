@@ -1,5 +1,14 @@
-<div class="ui menu">
-  <div class="header item">
-    <%= link_to "All our tests", root_path %>
+<div class="ui secondary pointing menu">
+
+  <% if session[:user_id] %>
+    <%= link_to "Welcome #{current_user.username }, to Test Guru",  root_path, class: "active item"  %>
+  <% end %>
+
+  <div class="right menu">
+    <% if session[:user_id] %>
+      <%= link_to "Logout", log_out_path, class: "item"  %>
+    <% else %>
+      <%= link_to "Login", login_path, class: "item" %> <span style="margin-top: 10px;">|</span> <%= link_to "Signup", signup_path, class: "item" %>
+  <% end %>
   </div>
 </div>

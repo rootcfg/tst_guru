@@ -12,6 +12,9 @@
   <body>
     <%= render 'layouts/menu' %>
     <%= render 'layouts/messages' %>
+    <% if logged_in? %>
+    <p><%= render 'sessions/card' %></p>
+    <% end %>
       <%= yield %>
     <%= render 'layouts/footer' %>
   </body>
