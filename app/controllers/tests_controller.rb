@@ -1,6 +1,6 @@
 class TestsController < ApplicationController
 
-  before_action :set_test, only: %w[show edit update destroy start]
+  before_action :set_test, only: %w[show edit update destroy ]
 
   def index
     @pagy, @tests = pagy(Test.all, items: 10)
