@@ -1,5 +1,8 @@
 class ApplicationController < ActionController::Base
-  add_flash_types :success, :error
+  add_flash_types :success, :error, :blue
+  before_action :authenticate_user!
+  before_action :keep_previous
+
   include Pagy::Backend
 
   helper_method :current_user,
@@ -11,6 +14,10 @@ class ApplicationController < ActionController::Base
     if !current_user
       redirect_to login_path, alert: "Please enter your email and password"
     end
+  end
+
+  def keep_previous
+    cookies[:redirect_to] ||= request.headers["HTTP_REFERER"]
   end
 
   def current_user
