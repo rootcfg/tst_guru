@@ -1,0 +1,35 @@
+<div class="ui grid">
+  <div class="two wide column"></div>
+  <div class="ten wide column">
+    <table class="ui celled table">
+
+      <thead>
+      <tr>
+        <th>Question</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr>
+        <td><%= question.body %></td>
+        <td>
+          <div style="display: inline-block  !important;">
+            <%= link_to "Edit", edit_admin_question_path(question), class: "ui orange button" %>
+          </div>
+          <div style="display: inline-block !important;" >
+            <%= form_with url: admin_question_path(question), method: :delete do |form| %>
+              <%= form.submit "Delete", class: "ui red button" %>
+            <% end %>
+          </div>
+          <div style="display: inline-block  !important;">
+            <%= link_to "answers", admin_answer_path(question), class: "ui primary button" %>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="two wide column"></div>
+</div>
+

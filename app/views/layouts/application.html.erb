@@ -11,9 +11,9 @@
 
   <body>
     <%= render 'layouts/menu' %>
-    <%= render 'layouts/messages' %>
-    <% if logged_in? %>
-      <p><%= render 'sessions/card' %></p>
+    <%= render 'shared/messages' %>
+    <% if user_signed_in? %>
+      <p><%= render 'shared/card' %></p>
     <% end %>
       <%= yield %>
     <%= render 'layouts/footer' %>

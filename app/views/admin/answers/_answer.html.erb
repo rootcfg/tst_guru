@@ -1,0 +1,5 @@
+<li>
+  <%= answer.body %>
+  <%= link_to "Edit", edit_admin_answer_path(answer) %>
+  <%= button_to "Delete", admin_answer_path(answer), method: :delete, class: "ui button red" %>
+</li>

@@ -1,0 +1,35 @@
+<div class="ui grid">
+  <div class="two wide column"></div>
+  <div class="two wide column"><h1 class="ui header">All tests</h1></div>
+  <div class="two wide column"></div>
+  <div class="two wide column"></div>
+  <div class="two wide column"></div>
+  <div class="two wide column"></div>
+  <div class="three wide column"><%= link_to 'New test', new_admin_test_path, class: "ui primary button" %></div>
+  <div class="one wide column"></div>
+</div>
+
+<div class="ui grid">
+  <div class="two wide column"></div>
+  <div class="twelve wide column">
+      <table class="ui celled padded table">
+        <thead>
+        <tr>
+          <th>Title</th>
+          <th>Level</th>
+          <th>Category</th>
+          <th>Author</th>
+          <th>Created</th>
+          <th>Updated</th>
+          <th>Questions</th>
+        </tr>
+        </thead>
+        <%= render @tests %>
+      </table>
+  </div>
+</div>
+
+<div class="ui grid">
+  <div class="two wide column"></div>
+  <div class="two wide column"><%== pagy_semantic_nav(@pagy).html_safe %></div>
+</div>

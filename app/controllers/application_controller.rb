@@ -1,26 +1,19 @@
 class ApplicationController < ActionController::Base
   add_flash_types :success, :error, :blue
-  before_action :authenticate_user!
 
   include Pagy::Backend
-
-  helper_method :current_user,
-                :logged_in?
+  before_action :authenticate_user!
 
   private
 
-  def authenticate_user!
-    if !current_user
-      redirect_to login_path, alert: "Please enter your email and password"
+  def after_sign_in_path_for(resource)
+    if current_user.kind_of?(Admin)
+      '/admin/tests'
+    elsif current_user.kind_of?(User)
+      root_path
+    else
+      root_path
     end
-  end
-
-  def current_user
-    @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
-  end
-
-  def logged_in?
-    current_user.present?
   end
 
 end
