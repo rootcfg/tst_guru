@@ -6,7 +6,8 @@
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "^6.0.0-beta.7",
-    "jquery": "3.4.1",
+    "gulp": "^3.9.1",
+    "jquery": "^3.6.0",
     "turbolinks": "^5.2.0",
     "webpack": "^5.38.1",
     "webpack-cli": "^4.7.2"
@@ -15,7 +16,7 @@
   "devDependencies": {
     "@webpack-cli/serve": "^1.5.1",
     "semantic-ui-sass": "^2.4.2",
-    "webpack-dev-server": "^3.11.2"
+    "webpack-dev-server": "^4.0.0"
   },
   "babel": {
     "presets": [

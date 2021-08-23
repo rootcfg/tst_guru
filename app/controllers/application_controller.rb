@@ -7,13 +7,11 @@ class ApplicationController < ActionController::Base
   private
 
   def after_sign_in_path_for(resource)
-    if current_user.kind_of?(Admin)
-      '/admin/tests'
-    elsif current_user.kind_of?(User)
+    if current_user.is_admin?
+      admin_tests_path
+      else current_user.is_admin?
       root_path
-    else
-      root_path
-    end
+      end
   end
 
 end
