@@ -28,7 +28,7 @@ class Admin::QuestionsController < Admin::BaseController
 
   def update
       if @question.update(question_params)
-         redirect_to admin_question_path(@question), success: "Question was successfully updated."
+         redirect_to admin_question_path(@question), success: t('admin.questions.update.success')
       else
          render :edit, status: :unprocessable_entity
       end

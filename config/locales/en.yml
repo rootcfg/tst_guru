@@ -31,3 +31,46 @@
 
 en:
   hello: "Hello world"
+
+  helpers:
+    submit:
+      test:
+        create: 'Create %{model}'
+        update: 'Update %{model}'
+        submit: 'Save %{model}'
+    label:
+      test:
+        title: "Title"
+        level: "Level"
+        category_id: "Category"
+
+  tests:
+    index:
+      header: "Test Guru"
+  admin:
+    tests:
+      new:
+        header: "New test"
+      create:
+        success: "Created successfully"
+        error: "Cant create test"
+    questions:
+      new:
+        header: "New question"
+      create:
+        success: "Question successfully created"
+        error: "Cant create question"
+      update:
+        success: "Question successfully updated"
+        error: "Cant update question"
+  test_passages:
+    result:
+      header: "Test %{test} passed!"
+  shared:
+    errors:
+      header:
+        one: "%{count} error found"
+        other: "%{count} errors founded"
+  test_mailers:
+    completed_test:
+      subject: "You just complete TestGuru test!"

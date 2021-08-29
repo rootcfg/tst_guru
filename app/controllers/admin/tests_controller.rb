@@ -23,9 +23,9 @@ class Admin::TestsController < Admin::BaseController
   def create
     @test = current_user.authored_tests.build(test_params)
     if @test.save
-      redirect_to tests_path
+      redirect_to admin_tests_path, success: t('.success')
     else
-      render plain: "#{@test.errors}"
+      redirect_to new_admin_test_path, error: t('.error')
     end
   end
 

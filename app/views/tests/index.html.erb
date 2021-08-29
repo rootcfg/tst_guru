@@ -1,6 +1,6 @@
 <div class="ui grid">
   <div class="two wide column"></div>
-  <div class="two wide column"><h1 class="ui header">All tests</h1></div>
+  <div class="two wide column"><h1 class="ui header"><%= t('tests.index.header') %></h1></div>
   <div class="two wide column"></div>
   <div class="two wide column"></div>
   <div class="two wide column"></div>
@@ -15,13 +15,13 @@
       <table class="ui celled padded table">
         <thead>
         <tr>
-          <th>Title</th>
-          <th>Level</th>
-          <th>Category</th>
-          <th>Author</th>
-          <th>Created</th>
-          <th>Updated</th>
-          <th>Questions</th>
+          <th><%= t('active_record.attributes.test.title') %></th>
+          <th><%= t('active_record.attributes.test.level') %></th>
+          <th><%= t('active_record.attributes.test.category_id') %></th>
+          <th><%= t('active_record.attributes.test.author') %></th>
+          <th><%= t('active_record.attributes.test.created') %></th>
+          <th><%= t('active_record.attributes.test.updated') %></th>
+          <th><%= t('active_record.attributes.test.question_id') %></th>
         </tr>
         </thead>
         <%= render @tests %>
