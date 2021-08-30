@@ -13,17 +13,3 @@
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-import $ from 'jquery';
-import jQuery from 'jquery';
-window.$ = window.jQuery = jQuery;
-//require('semantic-ui/dist/semantic')
-import 'semantic-ui-sass';
-$(document).ready(function() {
-    $('.message .close')
-        .on('click', function() {
-            $(this)
-                .closest('.message')
-                .transition('fade')
-            ;
-        });
-})

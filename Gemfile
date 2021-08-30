@@ -14,7 +14,7 @@ gem 'sass-rails', '>= 6'
 gem 'semantic-ui-sass'
 gem 'pagy'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', git: 'https://github.com/rails/webpacker.git'
+#gem 'webpacker', git: 'https://github.com/rails/webpacker.git'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
