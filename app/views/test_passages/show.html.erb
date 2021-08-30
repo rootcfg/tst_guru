@@ -12,5 +12,5 @@
   <%= form.collection_check_boxes :answers_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
     <p><%= b.label %>&nbsp;&nbsp;&nbsp;<%= b.check_box id: "answers_ids_#{b.object_id}" %></p>
   <% end %>
-  <p><%= form.submit "Next question" %></p>
+  <p><%= form.submit t('helpers.button.test_passage.next_question') %></p>
 <% end %>

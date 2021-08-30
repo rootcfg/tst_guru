@@ -8,7 +8,7 @@
     <td>
       <div class="ui left labeled button" tabindex="0">
         <%= link_to test.questions.count, admin_test_questions_path(test), class: "ui basic label"%>
-        <%= button_to 'Start this', start_test_path(test), class: "ui basic label"%>
+        <%= button_to t('helpers.button.test.start_it'), start_test_path(test), class: "ui basic label"%>
       </div>
     </td>
   </tr>

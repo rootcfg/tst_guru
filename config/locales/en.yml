@@ -38,6 +38,11 @@ en:
         create: 'Create %{model}'
         update: 'Update %{model}'
         submit: 'Save %{model}'
+    button:
+      test:
+        start_it: "Start this"
+      test_passage:
+        next_question: "Следующий вопрос"
     label:
       test:
         title: "Title"
