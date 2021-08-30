@@ -13,8 +13,8 @@
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-import $ from 'jquery/src/jquery';
-import jQuery from 'jquery/src/jquery';
+import $ from 'jquery/dist/jquery';
+import jQuery from 'jquery/dist/jquery';
 window.$ = window.jQuery = jQuery;
 $(document).ready(function() {
     $('.message .close')
