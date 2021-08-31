@@ -1,0 +1,72 @@
+ru:
+  hello: "Чик-Чырык!"
+
+  active_record:
+    models:
+      test: "Тест"
+    attributes:
+      test:
+        title: "Название"
+        level: "Уроверь"
+        author: "Автор"
+        category_id: "Категория"
+        created: "Создано"
+        updated: "Обновлено"
+        question_id: "Вопрос"
+    errors:
+      messages:
+        blank: "Не может быть пустым"
+        required: "Обязательно требуется"
+
+  helpers:
+    submit:
+      test:
+        create: "Создать тест"
+        update: "Обновить тест"
+    button:
+      test:
+        start_it: "Пройти тест"
+      test_passage:
+        next_question: "Следующий вопрос"
+    select:
+      # Default value for :prompt => true in FormOptionsHelper
+      category:
+        prompt: "Выберите категорию"
+    label:
+      test:
+        title: "Название"
+        level: "Уровень"
+        category_id: "Категория"
+
+  tests:
+    index:
+      header: "TestGuru - проходимец тестов"
+  admin:
+    tests:
+      new:
+        header: "Новый тест"
+      create:
+        success: "Тест успешно создан"
+        error: "Не могу создать тест"
+    questions:
+      new:
+        header: "Новый вопрос"
+      create:
+        success: "Вопрос успешно создан"
+        error: "Не могу создать вопрос"
+      update:
+        success: "Вопрос успешно обновлен"
+        error: "Не могу обновить вопрос"
+  test_passages:
+    result:
+      header: "Тест %{test} успешно пройден!"
+  shared:
+    errors:
+      header:
+        few: "Обнаружено %{count} ошибки"
+        other: "Обнаружено %{count} ошибки"
+        many: "Обнаружено %{count} ошибок"
+        one: "Обнаруженa %{count} ошибка"
+  test_mailers:
+    completed_test:
+      subject: "Вы успешно завершили тест!"
