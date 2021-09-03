@@ -9,8 +9,8 @@ Rails.application.configure do
     address:              'smtp.gmail.com',
     port:                 587,
     domain:               'vast-sea-10906.herokuapp.com',
-    user_name:            'Rails.application.credentials.gmail[:username]',
-    password:             'Rails.application.credentials.gmail[:password]',
+    user_name:            Rails.application.credentials.gmail[:username],
+    password:             Rails.application.credentials.gmail[:password],
     authentication:       'plain',
     enable_starttls_auto: true }
 
