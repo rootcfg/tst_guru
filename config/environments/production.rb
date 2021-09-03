@@ -89,7 +89,7 @@ Rails.application.configure do
   config.i18n.fallbacks = true
 
   config.time_zone = 'Moscow'
-  I18n.config.available_locales = %i[en]
+  I18n.config.available_locales = %i[en ru]
 
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
