@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    root 'admin/tests#index'
     resources :tests do
       resources :questions, shallow: true do
         resources :answers, shallow: true
