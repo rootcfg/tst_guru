@@ -1,6 +1,6 @@
 module ApplicationHelper
   def date_footer
-    Time.now.to_formatted_s(:short)
+    I18n.l(Time.current, format: :short)
   end
 
   def github_url(author, repo)

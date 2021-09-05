@@ -1,4 +1,4 @@
-<h1>Test <%= @test_passage.test.title %>was passed successfully</h1>
+<h1><%= t('.header', @test_passage.test.title) %></h1>
 
 <% if @test_passage.result >= 85 %>
   <div class="ui green message">You result is <%= @test_passage.result  %> percent! </div>
