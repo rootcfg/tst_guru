@@ -1,13 +1,14 @@
 Rails.application.configure do
 
-  config.action_controller.asset_host = 'https://vast-sea-10906.herokuapp.com'
-  config.action_mailer.asset_host = 'https://vast-sea-10906.herokuapp.com'
+  config.action_controller.asset_host = 'vast-sea-10906.herokuapp.com'
+  config.action_mailer.asset_host = 'vast-sea-10906.herokuapp.com'
 
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.smtp_settings = {
     address:              'smtp.gmail.com',
-    port:                 465,
+    port:                 587,
     domain:               'vast-sea-10906.herokuapp.com',
     user_name:            "#{Rails.application.credentials.gmail[:username]}",
     password:             "#{Rails.application.credentials.gmail[:password]}",
