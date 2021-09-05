@@ -1,7 +1,7 @@
 Rails.application.configure do
 
-  config.action_controller.asset_host = 'vast-sea-10906.herokuapp.com'
-  config.action_mailer.asset_host = 'vast-sea-10906.herokuapp.com'
+  config.action_controller.asset_host = 'https://vast-sea-10906.herokuapp.com'
+  config.action_mailer.asset_host = 'https://vast-sea-10906.herokuapp.com'
 
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
