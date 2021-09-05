@@ -7,14 +7,15 @@ Rails.application.configure do
 
   config.action_mailer.smtp_settings = {
     address:              'smtp.gmail.com',
-    port:                 587,
+    port:                 465,
     domain:               'vast-sea-10906.herokuapp.com',
     user_name:            "#{Rails.application.credentials.gmail[:username]}",
     password:             "#{Rails.application.credentials.gmail[:password]}",
     authentication:       'plain',
-    enable_starttls_auto: true }
+    enable_starttls_auto: true
+  }
 
-  config.action_mailer.default_url_options = { host: 'https://vast-sea-10906.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'vast-sea-10906.herokuapp.com' }
 
 
   # Settings specified here will take precedence over those in config/application.rb.
