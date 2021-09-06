@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin | Tstguru</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application' %>
+</head>
+
+<body>
+<%= render 'layouts/menu' %>
+<h3 style="color: red !important;"> Comrade! Your Are Admin! Be carefully!</h3>
+<%= render 'shared/messages' %>
+<% if user_signed_in? %>
+  <p><%= render 'shared/card' %></p>
+<% end %>
+<%= yield %>
+<%= render 'layouts/footer' %>
+</body>
+</html>
