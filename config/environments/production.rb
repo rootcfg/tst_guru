@@ -1,4 +1,24 @@
 Rails.application.configure do
+
+  config.action_controller.asset_host = 'https://vast-sea-10906.herokuapp.com'
+  config.action_mailer.asset_host = 'https://vast-sea-10906.herokuapp.com'
+
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    port:                 587,
+    domain:               'vast-sea-10906.herokuapp.com',
+    user_name:            "#{Rails.application.credentials.gmail[:username]}",
+    password:             "#{Rails.application.credentials.gmail[:password]}",
+    authentication:       'plain',
+    enable_starttls_auto: true
+  }
+
+  config.action_mailer.default_url_options = { host: 'vast-sea-10906.herokuapp.com' }
+
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -71,7 +91,7 @@ Rails.application.configure do
   config.i18n.fallbacks = true
 
   config.time_zone = 'Moscow'
-  I18n.config.available_locales = %i[en]
+  I18n.config.available_locales = %i[en ru]
 
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify

@@ -1,2 +1,1 @@
-//= require semantic-ui
 
