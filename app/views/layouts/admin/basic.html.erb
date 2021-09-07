@@ -1,22 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Admin | Tstguru</title>
+  <meta charset="UTF-8">
+
+  <title>Tstguru</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
 </head>
 
 <body>
-<%= render 'layouts/menu' %>
-<h3 style="color: red !important;"> Comrade! Your Are Admin! Be carefully!</h3>
-<%= render 'shared/messages' %>
-<% if user_signed_in? %>
-  <p><%= render 'shared/card' %></p>
-<% end %>
-<%= yield %>
-<%= render 'layouts/footer' %>
+
+<div class="ui grid">
+  <div class="column">
+    <div class="one column row">
+      <%= render 'layouts/menu' %>
+      <%= render 'shared/messages' %>
+    </div>
+  </div>
+</div>
+
+<div class="ui grid">
+  <div class="three column row">
+    <div class="column">
+      <% if user_signed_in? && current_user.is_admin?%>
+        <h3 style="color: red !important;"> Comrade! Your Are Admin! Be carefully!</h3>
+        <p><%= render 'shared/card' %></p>
+      <% end %>
+    </div>
+    <div class="column">
+      <%= yield %>
+    </div>
+    <div class="column"></div>
+  </div>
+</div>
+
+<div class="ui grid">
+  <div class="column">
+    <div class="one column row">
+      <%= render 'layouts/footer' %>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
