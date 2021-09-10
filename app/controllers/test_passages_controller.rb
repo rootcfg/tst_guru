@@ -1,7 +1,7 @@
 class TestPassagesController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :set_test_passage, only: %i[show update result]
+  before_action :set_test_passage, only: %i[show update result gist]
 
   def show
 
@@ -21,7 +21,23 @@ class TestPassagesController < ApplicationController
     end
   end
 
+  def gist
+    result = GistQuestionService.new(@test_passage.current_question, OktokitClient.new).call
+
+    flash_options = if ['success', 201].include?(result[1])
+                      save_gist(@test_passage.current_question.body, @test_passage.user.email, result[0][:url])
+                      { notice: t('.success', gist_url: result[0][:url]) }
+                    else
+                      { alert: t('.alert') }
+                    end
+    redirect_to @test_passage, flash_options
+  end
+
   private
+
+  def save_gist(question, email, url)
+    Gist.create(question: question.truncate(25), user: email, url: url)
+  end
 
   def set_test_passage
     @test_passage = TestPassage.find(params[:id])

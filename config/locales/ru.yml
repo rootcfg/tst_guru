@@ -60,6 +60,9 @@ ru:
   test_passages:
     result:
       header: "Тест %{test} успешно пройден!"
+    gist:
+      success: "Gist успешно сохранен! %{gist_url}"
+      alert: "Во время сохранения gist произошла ошибка"
   shared:
     errors:
       header:

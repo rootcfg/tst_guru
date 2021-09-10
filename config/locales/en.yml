@@ -71,6 +71,9 @@ en:
   test_passages:
     result:
       header: "Test %{test} passed!"
+    gist:
+      success: "Gist successfully created! %{gist_url}"
+      alert: "Error due gost creation!"
   shared:
     errors:
       header:
