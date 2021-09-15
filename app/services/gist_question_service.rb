@@ -1,5 +1,7 @@
 class GistQuestionService
 
+  attr_reader :client
+
   def initialize(question, client)
     @question = question
     @test = @question.test
@@ -8,6 +10,10 @@ class GistQuestionService
 
   def call
     @client.create_gist(gist_params)
+  end
+
+  def success?
+    @client.oktokit.last_response.present?
   end
 
   private

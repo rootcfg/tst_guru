@@ -28,9 +28,9 @@ ActiveRecord::Schema.define(version: 2021_09_10_111024) do
   end
 
   create_table "gists", force: :cascade do |t|
-    t.string "user"
+    t.string "user", null: false
     t.string "url"
-    t.string "question"
+    t.string "question", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

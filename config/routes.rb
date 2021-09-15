@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root 'tests#index'
-    get 'gists', to: 'gists#show'
+    resources :gists, only: %i[show index]
     resources :tests do
       resources :questions, shallow: true do
         resources :answers, shallow: true

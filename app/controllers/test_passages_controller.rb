@@ -22,11 +22,10 @@ class TestPassagesController < ApplicationController
   end
 
   def gist
-    result = GistQuestionService.new(@test_passage.current_question, OktokitClient.new).call
-
-    flash_options = if ['success', 201].include?(result[1])
-                      save_gist(@test_passage.current_question.body, @test_passage.user.email, result[0][:url])
-                      { notice: t('.success', gist_url: result[0][:url]) }
+    @result = GistQuestionService.new(@test_passage.current_question, OktokitClient.new)
+    flash_options = if @result.call && @result.success?
+                      save_gist(@test_passage.current_question.body, @test_passage.user.email, @result.client.oktokit.last_response.data.url)
+                      { notice: t('.success', gist_url: @result.client.oktokit.last_response.data.url) }
                     else
                       { alert: t('.alert') }
                     end
