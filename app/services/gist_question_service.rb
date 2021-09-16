@@ -5,7 +5,7 @@ class GistQuestionService
   def initialize(question, client)
     @question = question
     @test = @question.test
-    @client = client
+    @client = client || Octokit::Client.new(access_token: Rails.application.credentials.git[:access_token])
   end
 
   def call
@@ -13,7 +13,7 @@ class GistQuestionService
   end
 
   def success?
-    @client.oktokit.last_response.status == 201
+    @client.last_response.status == 201
   end
 
   private

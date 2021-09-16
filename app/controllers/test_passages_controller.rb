@@ -22,10 +22,10 @@ class TestPassagesController < ApplicationController
   end
 
   def gist
-    result = GistQuestionService.new(@test_passage.current_question, OktokitClient.new)
+    result = GistQuestionService.new(@test_passage.current_question, nil)
     flash_options = if result.call && result.success?
-                      save_gist(@test_passage.current_question.body, @test_passage.user.email, result.client.oktokit.last_response.data.url)
-                      { notice: t('.success', gist_url: result.client.oktokit.last_response.data.url) }
+                      save_gist(@test_passage.current_question.id, @test_passage.user.id, result.client.last_response.data.url)
+                      { notice: t('.success', gist_url: result.client.last_response.data.url) }
                     else
                       { alert: t('.alert') }
                     end
@@ -34,8 +34,8 @@ class TestPassagesController < ApplicationController
 
   private
 
-  def save_gist(question, email, url)
-    Gist.create(question: question.truncate(25), user: email, url: url)
+  def save_gist(question, user, url)
+    Gist.create(question_id: question, user_id: user, url: url)
   end
 
   def set_test_passage
