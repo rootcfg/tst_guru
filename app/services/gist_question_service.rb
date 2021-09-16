@@ -13,7 +13,7 @@ class GistQuestionService
   end
 
   def success?
-    @client.oktokit.last_response.present?
+    @client.oktokit.last_response.status == 201
   end
 
   private
