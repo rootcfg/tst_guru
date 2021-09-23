@@ -31,3 +31,14 @@
 .admin_access {
   padding-top: 8px;
 }
+
+.tablesorter-headerAsc:after {
+  content: "  \2191";
+  display: inline;
+}
+
+.tablesorter-headerDesc:after {
+  content: " \2193";
+  display: inline;
+
+}
