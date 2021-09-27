@@ -1,6 +1,17 @@
 <h1>
   <%= t('.header', title: @test_passage.test.title )%>
 </h1>
+
+<div class="progress">
+
+  <%= content_tag :div, class: 'progress-bar', data: {
+    number: @test_passage.current_question.number,
+    count: @test_passage.test.questions.count
+  } do %>
+  <% end %>
+
+</div>
+
 <b>
  Question <%= @test_passage.number_of_questions %> of <%= @test_passage.test.questions.count %></p>
 </b>

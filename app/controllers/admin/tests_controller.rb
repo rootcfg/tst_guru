@@ -1,9 +1,9 @@
 class Admin::TestsController < Admin::BaseController
 
-  before_action :set_test, only: %w[show edit update destroy start]
+  before_action :set_tests, only: %w[index update_inline]
+  before_action :set_test, only: %w[show edit update destroy start update_inline]
 
   def index
-    @pagy, @tests = pagy(Test.all, items: 10)
   end
 
   def new
@@ -13,6 +13,22 @@ class Admin::TestsController < Admin::BaseController
   def destroy
     @test.destroy
     redirect_to tests_path
+  end
+
+  def update
+    if @test.update(test_params)
+      redirect_to [:admin, @test]
+    else
+      render :edit
+    end
+  end
+
+  def update_inline
+    if @test.update(test_params)
+      redirect_to admin_tests_path
+    else
+      render :index
+    end
   end
 
   def create
@@ -36,6 +52,10 @@ class Admin::TestsController < Admin::BaseController
 
   def set_test
     @test = Test.find(params[:id])
+  end
+
+  def set_tests
+    @pagy, @tests = pagy(Test.all, items: 10)
   end
 
 end

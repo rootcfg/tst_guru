@@ -1,5 +1,7 @@
 import 'jquery'
 import 'tablesorter'
+import './form_inline'
+import './progress_bar'
 import 'fomantic-ui'
 
 $(document).ready(function() {
@@ -8,17 +10,17 @@ $(document).ready(function() {
             $(this).closest('.message').transition('fade');
         })
     ;
+
     $("#sortedMy").tablesorter();
     $('.ui.form')
         .form({
             fields: {
-                email: {
+                sign_up_email: {
                     identifier: 'sign_up_email',
                     rules: [
                         {
-                            type   : 'regExp',
-                            value : '/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/i',
-                            prompt : 'Please enter your name'
+                            type   : 'email',
+                            prompt : 'Email is not valid'
                         }
                     ]
                 },
@@ -36,21 +38,13 @@ $(document).ready(function() {
                     rules: [
                         {
                             type   : 'match',
-                            value: 'match[sign_up_password]',
+                            value  : 'sign_up_password',
                             prompt : 'Passwords does not match'
-                        }
-                    ]
-                },
-                username: {
-                    identifier: 'username',
-                    rules: [
-                        {
-                            type   : 'empty',
-                            prompt : 'Please enter a username'
                         }
                     ]
                 }
             }
         })
     ;
-})
+
+});

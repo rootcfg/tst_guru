@@ -1,0 +1,9 @@
+<%= form_with model: [:admin, test],
+              url: update_inline_admin_test_path(test),
+              local: true,
+              data: { test_id: test.id },  class: "ui form hidden_default" do |form| %>
+  <div class="ui input">
+    <%= form.text_field :title %>
+  </div>
+  <%= form.submit t('.submit'), class: "ui main button" %>
+<% end %>
