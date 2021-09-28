@@ -1,7 +1,7 @@
-<% if resource.errors.any? %>
+<% if resource.present? && resource.errors.any? %>
   <div id="error_explanation" class="error">
     <h2>
-      <%= t("shared.errors.header", count: resource.error.count) %>:
+      <%= t("shared.errors.header", count: resource.errors.count) %>:
     </h2>
     <ul>
       <% resource.errors.full_messages.each do |msg| %>

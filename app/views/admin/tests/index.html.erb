@@ -5,8 +5,18 @@
   <div class="two wide column"></div>
   <div class="two wide column"></div>
   <div class="two wide column"></div>
-  <div class="three wide column"><%= link_to 'New test', new_admin_test_path, class: "ui primary button" %></div>
-  <div class="one wide column"></div>
+  <div class="three wide column">
+    <%= link_to 'New test', new_admin_test_path, class: "ui primary button" %>
+  </div>
+  <div class="one wide column">
+  </div>
+</div>
+
+<div class="ui grid">
+  <div class="two wide column"></div>
+  <div class="twelve wide column">
+    <%= render 'shared/errors', resource: @test %>
+  </div>
 </div>
 
 <div class="ui grid">

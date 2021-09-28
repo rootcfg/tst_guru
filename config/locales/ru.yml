@@ -45,6 +45,8 @@ ru:
     tests:
       new:
         header: "Новый тест"
+      form_inline:
+        submit: "Обновить название теста"
       create:
         success: "Тест успешно создан"
         error: "Не могу создать тест"
