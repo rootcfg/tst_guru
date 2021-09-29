@@ -4,7 +4,7 @@
   <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
 </head>
 <body>
-<h1>We recieved new feedbak from<%= @last_name + ' ' + @first_name %></h1>
+<h1>We recieved new feedbak from<%= "#{ @last_name + ' ' + @first_name}" %></h1>
 <p>
   <%= @feedbak %>
 </p>
