@@ -6,4 +6,8 @@ class TestsMailer < ApplicationMailer
 
     mail to: @user.email, subject: "You Just Complete TestGuru test!"
   end
+
+  def feedbak(first_name, last_name, email, feedbak)
+    mail to: email, subject: "We recieved new feedbak!"
+  end
 end
