@@ -13,7 +13,7 @@ class Test < ApplicationRecord
                                                            .pluck(:title)}
 
   validates :title,:category_id,:author_id, presence: true
-  validates :title, length: { in: 10..50 }
+  validates :title, length: { in: 3..50 }
   validates :level, numericality: { only_integer: true, less_than_or_equal_to: 4 }
   validates :title, uniqueness: { scope: :level,
                                   message: "should happen once level" }

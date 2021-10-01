@@ -11,6 +11,7 @@ class TestsMailer < ApplicationMailer
     @first_name = params[:first_name]
     @last_name  = params[:last_name]
     @feedback   = params[:feedbak]
+
     mail to: 'ddd2283@gmail.com', subject: "We recieved new feedbak!"
   end
 end

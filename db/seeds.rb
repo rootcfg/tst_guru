@@ -1,75 +1,60 @@
-ActiveRecord::Schema.define(version: 2021_08_18_161932) do
+admin = Admin.find_by(email: 'admin@testguru.ru') || Admin.create(
+  email: 'admin@testguru.ru',
+  password: '123456',
+  first_name: 'Администратор',
+  last_name: 'Системы'
+)
 
-  create_table "answers", force: :cascade do |t|
-    t.string "body", null: false
-    t.integer "question_id"
-    t.boolean "correct", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["question_id"], name: "index_answers_on_question_id"
-  end
+back, front, devops = %w[backend frontend devops].map { |title| Category.find_or_create_by(title: title) }
 
-  create_table "categories", force: :cascade do |t|
-    t.string "title", limit: 30, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
+tests = Test.create!(
+  [
+    { title: 'Ruby', level: 1, category: back, author: admin },
+    { title: 'PHP', level: 2, category: back, author: admin },
+    { title: 'AngularJS', level: 3, category: front, author: admin },
+    { title: 'CSS', level: 2, category: front, author: admin },
+    { title: 'Linux', level: 1, category: devops, author: admin }
+  ]
+)
 
-  create_table "questions", force: :cascade do |t|
-    t.string "body", limit: 80, null: false
-    t.integer "test_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["test_id"], name: "index_questions_on_test_id"
-  end
+questions = Question.create!(
+  [
+    { body: 'Назовите метод, позволяющий добавить в массив новое значение', test: tests[0] },
+    { body: 'Какой вид типизации используется в языке Ruby?', test: tests[0] },
+    { body: 'Кто автор языка Ruby?', test: tests[0] },
+    { body: 'Какой сервис используется в Angular для работы с RESTful API?', test: tests[2] },
+    { body: 'Для каких целей используется селектор + ?', test: tests[3] },
+    { body: 'Какой командой можно посмотреть список файлов текущего каталога?', test: tests[4] }
+  ]
+)
 
-  create_table "test_passages", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "test_id", null: false
-    t.integer "current_question_id"
-    t.integer "correct_questions", default: 0
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.boolean "passed", default: false
-    t.index ["current_question_id"], name: "index_test_passages_on_current_question_id"
-    t.index ["test_id"], name: "index_test_passages_on_test_id"
-    t.index ["user_id"], name: "index_test_passages_on_user_id"
-  end
+answers = Answer.create(
+  [
+    { body: 'pop', question: questions[0], correct: false },
+    { body: 'push', question: questions[0], correct: true },
+    { body: 'insert', question: questions[0], correct: true },
 
-  create_table "tests", force: :cascade do |t|
-    t.string "title", limit: 60, null: false
-    t.integer "level", default: 1, null: false
-    t.integer "category_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "author_id"
-    t.index ["author_id"], name: "index_tests_on_author_id"
-    t.index ["category_id"], name: "index_tests_on_category_id"
-  end
+    { body: 'Статическая типизация', question: questions[1], correct: false  },
+    { body: 'Динамическая типизация', question: questions[1], correct: true },
+    { body: 'Строгая типизация', question: questions[1], correct: true },
 
-  create_table "users", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "email", limit: 40, default: ""
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email"
-    t.string "type", default: "User", null: false
-    t.string "last_name"
-    t.string "first_name"
-    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["type"], name: "index_users_on_type"
-  end
+    { body: 'Matz', question: questions[2], correct: true },
+    { body: 'DHH', question: questions[2], correct: false  },
+    { body: 'Google', question: questions[2], correct: false  },
 
-  add_foreign_key "test_passages", "questions", column: "current_question_id"
-  add_foreign_key "test_passages", "tests"
-  add_foreign_key "test_passages", "users"
-  add_foreign_key "tests", "users", column: "author_id"
-end
+    { body: '$scope', question: questions[3], correct: false  },
+    { body: '$resource', question: questions[3], correct: true },
+    { body: '$http', question: questions[3], correct: true },
+
+    { body: 'Выбирает элемент, который находится непосредственно после указанного \
+элемента, если у них общий родитель', question: questions[4], correct: true },
+    { body: 'Выбирает элементы, которые являются дочерними непосредственно по \
+отношению к указанному элементу', question: questions[4], correct: false  },
+    { body: 'Выбирает элементы, которые находятся после указанного элемента, \
+если у них общий родитель', question: questions[4], correct: false  },
+
+    { body: 'cat', question: questions[5], correct: false  },
+    { body: 'ls', question: questions[5], correct: true },
+    { body: 'cp', question: questions[5], correct: false  }
+  ]
+)
