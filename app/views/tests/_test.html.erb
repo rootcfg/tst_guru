@@ -8,8 +8,10 @@
     <td><%= test.created_at.to_formatted_s(:rfc822)  %></td>
     <td><%= test.updated_at.to_formatted_s(:short)  %></td>
     <td>
-      <div class="ui left labeled button" tabindex="0">
+      <div class="ui left padded button">
         <%= link_to test.questions.count, admin_test_questions_path(test), class: "ui basic label"%>
+      </div>
+      <div class="ui left padded button">
         <%= button_to t('helpers.button.test.start_it'), start_test_path(test), class: "ui basic label"%>
       </div>
     </td>

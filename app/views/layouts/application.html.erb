@@ -22,18 +22,17 @@
     </div>
   </div>
 
-  <div class="ui grid">
-    <div class="three column row">
-      <div class="column">
+  <div class="">
+    <div class="">
+      <div class="">
         <% if user_signed_in? %>
           <p><%= render 'shared/card' %></p>
         <% end %>
       </div>
-      <div class="column">
+      <div class="">
         <%= yield %>
 
       </div>
-      <div class="column"></div>
     </div>
   </div>
 
